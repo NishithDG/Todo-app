@@ -28,8 +28,8 @@ class App extends Component {
 
   }
   componentDidMount(){
-    axios.get(`${this.apiUrl}`).
-        then(Response=>{
+    axios.get(`${this.apiUrl}`)
+        .then(Response=>{
             console.log(Response);
             this.setState({
               todos:Response.data,
@@ -170,7 +170,7 @@ class App extends Component {
             {this.state.editing ? 'Update Task' : 'Add Task'}
           </button>
           {
-            this.state.loading && <img className='mt-3 mb-3' style={{height:'46px',width:'46px'}} src={loadingGif}/>
+            this.state.loading && <img className='mt-3 mb-3' alt='loading' style={{height:'46px',width:'46px'}} src={loadingGif}/>
           }
           <h2>Your Todo Tasks..</h2>
           {(!this.state.editing ) && <ul className="list-group mt-5">
